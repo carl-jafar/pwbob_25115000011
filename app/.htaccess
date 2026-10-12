@@ -1,0 +1,2 @@
+Options -Indexes
+#artinya jika ada user yang membuka folder app dan folder-foolder didalamnya selama di dalam folder itu tidak ada file index maka jangan ditampilkan isi folder tsb

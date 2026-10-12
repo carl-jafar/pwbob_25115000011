@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($data['title'], ENT_QUOTES, 'UTF-8'); ?></title>
-</head>
-<body>
-    <h1><?= htmlspecialchars($data['title'], ENT_QUOTES, 'UTF-8'); ?></h1>
-    <p><?= htmlspecialchars($data['description'], ENT_QUOTES, 'UTF-8'); ?></p>
-</body>
-</html>
+<div class="container">
+    <div class="jumbotron" >
+  <h1 class="display-4">Selamat Datang di Website Saya</h1>
+  <p class="lead">halo, nama saya <?php echo $data['nama']; ?></p>
+  <hr class="my-4">
+  <p>Web ini adalah tugas PWBO Haikal</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
+</div>
+</div>
