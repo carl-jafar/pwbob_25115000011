@@ -10,11 +10,19 @@ class About extends Controller {
         $this->view('templates/footer');
     }
     
-    public function page()
+    public function detail($id)
     {
-        $data['judul'] = 'Pages';
+        $data['judul'] = 'Detail Mahasiswa';
         $this->view('templates/header', $data);
-        $this->view('about/page');
+        $this->view('mahasiswa/detail', $data);
         $this->view('templates/footer');
+    }
+
+    public function tambah()
+    {
+        if($this->model('Mahasiswa_model')->tambahDataMahasiswa($_POST) > 0) {
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        }
     }
 }

@@ -17,4 +17,30 @@ class Mahasiswa extends Controller {
         $this->view('mahasiswa/detail', $data);
         $this->view('templates/footer');
     }
+
+    public function tambah()
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        }
+
+        $data = [
+            'nama' => trim($_POST['nama'] ?? ''),
+            'nim' => trim($_POST['nim'] ?? ''),
+            'email' => trim($_POST['email'] ?? ''),
+            'jurusan' => trim($_POST['jurusan'] ?? '')
+        ];
+
+        if (in_array('', $data, true)) {
+            throw new InvalidArgumentException('Semua data mahasiswa wajib diisi.');
+        }
+
+        if ($this->model('Mahasiswa_model')->tambahDataMahasiswa($data) > 0) {
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        }
+
+        throw new RuntimeException('Data mahasiswa gagal disimpan.');
+    }
 }
